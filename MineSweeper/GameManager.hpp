@@ -7,4 +7,6 @@ public:
 	void play();
 private:
 	Stage mStage;
+	const int mWidth = 10;
+	const int mHeight = 10;
 };
