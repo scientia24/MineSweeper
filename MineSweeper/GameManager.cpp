@@ -6,7 +6,9 @@ GameManager::GameManager()
 	: mStage(Stage(mWidth, mHeight))
 {}
 
-void GameManager::play() const {
+void GameManager::play() {
+	mStage.init();
+
 	for (int i = 0; i < mHeight; i++) {
 		for (int j = 0; j < mWidth; j++) {
 			if (mStage.isBomb(j, i)) {

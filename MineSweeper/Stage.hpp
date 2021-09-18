@@ -6,6 +6,7 @@ class  Stage
 public:
 	 Stage(int aWidth, int aHeight);
 
+	 void init();
 	 int getWidth() const { return mWidth; }
 	 int getHeight() const { return mHeight; }
 	 bool isBomb(int x, int y) const;

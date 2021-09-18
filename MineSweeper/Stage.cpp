@@ -6,6 +6,10 @@ Stage::Stage(int aWidth, int aHeight) {
 	mBombArray = Array();
 }
 
+void Stage::init() {
+	mBombArray.set(2, 2, true);
+}
+
 bool Stage::isBomb(int x, int y) const {
 	return mBombArray.get(x, y);
 }

@@ -4,7 +4,7 @@
 class GameManager {
 public:
 	GameManager();
-	void play() const;
+	void play();
 private:
 	Stage mStage;
 	const int mWidth = 10;
