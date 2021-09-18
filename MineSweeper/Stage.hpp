@@ -1,5 +1,5 @@
 #pragma once
-#include "Array.hpp"
+#include "Array.cpp"
 #include "Vector2.hpp"
 
 class  Stage
@@ -19,7 +19,7 @@ public:
 private:
 	int mWidth;
 	int mHeight;
-	Array mBombArray;
-	Array mOpenArray;
+	Array<bool> mBombArray;
+	Array<bool> mOpenArray;
 };
 

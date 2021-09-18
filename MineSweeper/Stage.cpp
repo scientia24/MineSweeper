@@ -3,8 +3,8 @@
 Stage::Stage(int aWidth, int aHeight) {
 	mWidth = aWidth;
 	mHeight = aHeight;
-	mBombArray = Array();
-	mOpenArray = Array();
+	mBombArray = Array<bool>();
+	mOpenArray = Array<bool>();
 }
 
 void Stage::init() {
