@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MineSweeper.cpp" />
+    <ClCompile Include="Stage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Stage.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
