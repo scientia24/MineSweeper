@@ -17,10 +17,18 @@ void GameManager::play() {
 		auto command = _getch();
 		system("cls");
 
-		if (command == 0xe0) {
-			auto allowKey = _getch();
-			switch (allowKey)
-			{
+		switch (command)
+		{
+		case 97: // aキーでopen
+			mStage.open(cursor);
+			break;
+		case 102: // fキーでflag
+			break;
+		case 0xe0:
+			if (command == 0xe0) {
+				auto allowKey = _getch();
+				switch (allowKey)
+				{
 				case 0x48:
 					if (mStage.inStage(cursor.x, cursor.y - 1)) --cursor.y;
 					break;
@@ -33,7 +41,11 @@ void GameManager::play() {
 				case 0x4d:
 					if (mStage.inStage(cursor.x + 1, cursor.y)) ++cursor.x;
 					break;
+				}
 			}
+			break;
+		default:
+			break;
 		}
     }
 }

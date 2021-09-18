@@ -23,6 +23,10 @@ void Stage::open(int x, int y) {
 	mOpenArray.set(x, y, true);
 }
 
+void Stage::open(Vector2 vec) {
+	open(vec.x, vec.y);
+}
+
 bool Stage::inStage(int x, int y) const {
 	return 0 <= x && x < mWidth && 0 <= y && y < mHeight;
 }
