@@ -15,11 +15,13 @@ public:
 	void open(int x, int y);
 	void open(Vector2 vec);
 	bool inStage(int x, int y) const;
+	int getBombNum(int x, int y) const;
 
 private:
+	int getBombCount(int x, int y) const;
 	int mWidth;
 	int mHeight;
-	Array<bool> mBombArray;
+	Array<int> mBombArray;
 	Array<bool> mOpenArray;
 };
 

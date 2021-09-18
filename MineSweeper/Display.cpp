@@ -25,7 +25,8 @@ void Display::Show(Stage aStage, Vector2 aCursor) {
 						std::cout << " *";
 					}
 					else {
-						std::cout << " .";
+						int bombNum = aStage.getBombNum(j, i);
+						std::cout << (bombNum == 0 ? " ." : fullNum[bombNum - 1]);
 					}
 				}
 			}
