@@ -13,11 +13,16 @@ void Display::Show(Stage aStage) {
 	for (int i = 0; i < aStage.getHeight(); i++) {
 		std::cout << fullNum[i];
 		for (int j = 0; j < aStage.getWidth(); j++) {
-			if (aStage.isBomb(j, i)) {
-				std::cout << "–";
+			if (!aStage.isOpen(j, i)) {
+				std::cout << "  ";
 			}
 			else {
-				std::cout << "  ";
+				if (aStage.isBomb(j, i)) {
+					std::cout << " *";
+				}
+				else {
+					std::cout << " .";
+				}
 			}
 		}
 		std::cout << std::endl;

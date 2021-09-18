@@ -10,10 +10,14 @@ public:
 	 int getWidth() const { return mWidth; }
 	 int getHeight() const { return mHeight; }
 	 bool isBomb(int x, int y) const;
+	 bool isOpen(int x, int y) const;
+	 void open(int x, int y);
 
 private:
+	bool inStage(int x, int y) const;
 	int mWidth;
 	int mHeight;
 	Array mBombArray;
+	Array mOpenArray;
 };
 
