@@ -14,24 +14,26 @@ void GameManager::play() {
 	mStage.init();
     while (true) {
 		Display::Show(mStage, cursor);
-		auto input = _getch();
-		system("cls");
-		if (input != 0xe0) continue;
 		auto command = _getch();
-		switch (command)
-		{
-			case 0x48:
-				if (mStage.inStage(cursor.x, cursor.y - 1)) --cursor.y;
-				break;
-			case 0x50:
-				if (mStage.inStage(cursor.x, cursor.y + 1)) ++cursor.y;
-				break;
-			case 0x4b:
-				if (mStage.inStage(cursor.x - 1, cursor.y)) --cursor.x;
-				break;
-			case 0x4d:
-				if (mStage.inStage(cursor.x + 1, cursor.y)) ++cursor.x;
-				break;
+		system("cls");
+
+		if (command == 0xe0) {
+			auto allowKey = _getch();
+			switch (allowKey)
+			{
+				case 0x48:
+					if (mStage.inStage(cursor.x, cursor.y - 1)) --cursor.y;
+					break;
+				case 0x50:
+					if (mStage.inStage(cursor.x, cursor.y + 1)) ++cursor.y;
+					break;
+				case 0x4b:
+					if (mStage.inStage(cursor.x - 1, cursor.y)) --cursor.x;
+					break;
+				case 0x4d:
+					if (mStage.inStage(cursor.x + 1, cursor.y)) ++cursor.x;
+					break;
+			}
 		}
     }
 }
