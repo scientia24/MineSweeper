@@ -2,7 +2,7 @@
 class Array {
 public:
 	Array();
-	bool get(int x, int y) { return mArray[x + y * (mHeight - 1)]; }
+	bool get(int x, int y) const { return mArray[x + y * (mHeight - 1)]; }
 	void set(int x, int y, bool t) { mArray[x + y * (mHeight - 1)] = t; }
 
 private:
