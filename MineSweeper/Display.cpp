@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Display.hpp"
 
-void Display::Show(Stage aStage) {
+void Display::Show(Stage aStage, Vector2 aCursor) {
 	const std::string fullNum[] = { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10" };
 	std::cout << "  ";
 
@@ -13,15 +13,20 @@ void Display::Show(Stage aStage) {
 	for (int i = 0; i < aStage.getHeight(); i++) {
 		std::cout << fullNum[i];
 		for (int j = 0; j < aStage.getWidth(); j++) {
-			if (!aStage.isOpen(j, i)) {
-				std::cout << "  ";
+			if (j == aCursor.x && i == aCursor.y) {
+				std::cout << " ";
 			}
 			else {
-				if (aStage.isBomb(j, i)) {
-					std::cout << " *";
+				if (!aStage.isOpen(j, i)) {
+					std::cout << "  ";
 				}
 				else {
-					std::cout << " .";
+					if (aStage.isBomb(j, i)) {
+						std::cout << " *";
+					}
+					else {
+						std::cout << " .";
+					}
 				}
 			}
 		}

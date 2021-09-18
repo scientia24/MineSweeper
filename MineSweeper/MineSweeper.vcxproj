@@ -150,6 +150,7 @@
     <ClInclude Include="Display.hpp" />
     <ClInclude Include="GameManager.hpp" />
     <ClInclude Include="Stage.hpp" />
+    <ClInclude Include="Vector2.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

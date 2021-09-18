@@ -23,7 +23,6 @@ void Stage::open(int x, int y) {
 	mOpenArray.set(x, y, true);
 }
 
-// -----------private-----------
 bool Stage::inStage(int x, int y) const {
 	return 0 <= x && x < mWidth && 0 <= y && y < mHeight;
 }
