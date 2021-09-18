@@ -2,10 +2,12 @@
 //
 
 #include <iostream>
+#include "GameManager.hpp"
 
 int main()
 {
-    std::cout << << std::endl
+	GameManager gm;
+	gm = GameManager();
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
