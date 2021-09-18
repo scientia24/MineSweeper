@@ -12,7 +12,7 @@ GameManager::GameManager()
 void GameManager::play() {
 	auto cursor = Vector2(0, 0);
 	mStage.init();
-    while (true) {
+    while (!(isClear() || isGameOver())) {
 		Display::Show(mStage, cursor);
 		auto command = _getch();
 		system("cls");
@@ -48,4 +48,33 @@ void GameManager::play() {
 			break;
 		}
     }
+
+	Display::Show(mStage, cursor);
+	if (isClear()) {
+		std::cout << "Congratulations!" << std::endl;
+		auto command = _getch();
+	}
+	if (isGameOver()) {
+		std::cout << "GameOver" << std::endl;
+		auto command = _getch();
+	}
+}
+
+bool GameManager::isClear() {
+	for (int i = 0; i < mStage.getHeight(); i++) {
+		for (int j = 0; j < mStage.getWidth(); j++) {
+			if (!(mStage.isOpen(j, i) || mStage.isBomb(j, i))) return false;
+		}
+	}
+	return true;
+}
+
+bool GameManager::isGameOver() {
+	for (int i = 0; i < mStage.getHeight(); i++) {
+		for (int j = 0; j < mStage.getWidth(); j++) {
+			if (mStage.isOpen(j, i) && mStage.isBomb(j, i)) return true;
+		}
+	}
+
+	return false;
 }

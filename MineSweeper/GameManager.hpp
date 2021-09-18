@@ -6,5 +6,7 @@ public:
 	GameManager();
 	void play();
 private:
+	bool isClear();
+	bool isGameOver();
 	Stage mStage;
 };
