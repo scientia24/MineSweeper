@@ -18,7 +18,7 @@ Stage::Stage(int aWidth, int aHeight)
 	}
 }
 
-void Stage::init(int bombNum, Vector2 cursor) {
+void Stage::init(int bombNum, const Vector2& cursor) {
 	// 爆弾をランダムにセット
 	std::random_device rd;
 	std::default_random_engine eng(rd());
@@ -74,7 +74,7 @@ void Stage::open(int x, int y) {
 	}
 }
 
-void Stage::open(Vector2 vec) {
+void Stage::open(const Vector2& vec) {
 	open(vec.x, vec.y);
 }
 
@@ -83,7 +83,7 @@ void Stage::flag(int x, int y) {
 	mFlagArray.set(x, y, true);
 }
 
-void Stage::flag(Vector2 vec) {
+void Stage::flag(const Vector2& vec) {
 	flag(vec.x, vec.y);
 }
 

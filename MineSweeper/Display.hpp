@@ -2,8 +2,11 @@
 #include "Stage.hpp"
 #include "Vector2.hpp"
 
-static class Display
+class Display
 {
 public:
-	static void Show(Stage aStage, Vector2 aCursor);
+	static void Show(const Stage& aStage, const Vector2& aCursor);
+
+private:
+	Display();
 };

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Display.hpp"
 
-void Display::Show(Stage aStage, Vector2 aCursor) {
+void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 	const std::string fullNum[] = { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10" };
 	std::cout << "  " << "b";
 
