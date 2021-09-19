@@ -3,43 +3,47 @@
 
 void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 	const std::string fullNum[] = { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10" };
-	std::cout << "  " << "b";
+
+	std::string str = "";
+	str += "  b";
 
 	for (int i = 0; i < aStage.getWidth(); i++) {
-		std::cout << fullNum[i];
+		str += fullNum[i];
 	}
-	std::cout << std::endl;
+	str += "\n";
 
-	std::cout << "\" << "„©";
+	str += "\„©";
 	for (int i = 0; i < aStage.getWidth() + 1; i++) {
-		std::cout << "\";
+		str += "\";
 	}
-	std::cout << std::endl;
+	str += "\n";
 
 	for (int i = 0; i < aStage.getHeight(); i++) {
-		std::cout << fullNum[i] << "b";
+		str += fullNum[i];
+		str += "b";
 		for (int j = 0; j < aStage.getWidth(); j++) {
 			if (j == aCursor.x && i == aCursor.y) {
-				std::cout << " ";
+				str += " ";
 			}
 			else {
 				if (aStage.isFlag(j, i)) {
-					std::cout << "\x1b[47m" << "\x1b[30m" << " F" << "\x1b[49m" << "\x1b[39m";
+					str += "\x1b[47m\x1b[30m F\x1b[49m\x1b[39m";
 				}
 				else if (!aStage.isOpen(j, i)) {
-					std::cout << "\x1b[47m" << "  " << "\x1b[49m";
+					str += "\x1b[47m  \x1b[49m";
 				}
 				else {
 					if (aStage.isBomb(j, i)) {
-						std::cout << " *";
+						str += " *";
 					}
 					else {
 						int bombNum = aStage.getBombNum(j, i);
-						std::cout << (bombNum == 0 ? " ." : fullNum[bombNum - 1]);
+						str += (bombNum == 0 ? " ." : fullNum[bombNum - 1]);
 					}
 				}
 			}
 		}
-		std::cout << std::endl;
+		str += "\n";
 	}
+	std::cout << str;
 }
