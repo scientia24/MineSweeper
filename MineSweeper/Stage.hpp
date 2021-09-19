@@ -7,13 +7,15 @@ class  Stage
 public:
 	 Stage(int aWidth, int aHeight);
 
-	void init();
+	void init(int bombNum);
 	int getWidth() const { return mWidth; }
 	int getHeight() const { return mHeight; }
+	bool isBomb(int num) const;
 	bool isBomb(int x, int y) const;
 	bool isOpen(int x, int y) const;
 	void open(int x, int y);
 	void open(Vector2 vec);
+	bool inStage(int num) const;
 	bool inStage(int x, int y) const;
 	int getBombNum(int x, int y) const;
 

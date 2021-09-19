@@ -11,7 +11,7 @@ GameManager::GameManager()
 
 void GameManager::play() {
 	auto cursor = Vector2(0, 0);
-	mStage.init();
+	mStage.init(10);
     while (!(isClear() || isGameOver())) {
 		Display::Show(mStage, cursor);
 		auto command = _getch();
