@@ -24,10 +24,10 @@ void Display::Show(Stage aStage, Vector2 aCursor) {
 			}
 			else {
 				if (aStage.isFlag(j, i)) {
-					std::cout << " F";
+					std::cout << "\x1b[47m" << "\x1b[30m" << " F" << "\x1b[49m" << "\x1b[39m";
 				}
 				else if (!aStage.isOpen(j, i)) {
-					std::cout << "  ";
+					std::cout << "\x1b[47m" << "  " << "\x1b[49m";
 				}
 				else {
 					if (aStage.isBomb(j, i)) {
