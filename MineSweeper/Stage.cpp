@@ -1,16 +1,19 @@
 #include <random>
 #include "Stage.hpp"
 
-Stage::Stage(int aWidth, int aHeight) {
-	mWidth = aWidth;
-	mHeight = aHeight;
+Stage::Stage(int aWidth, int aHeight)
+	: mWidth(aWidth)
+	, mHeight(aHeight)
+{
 	mBombArray = Array<int>();
 	mOpenArray = Array<bool>();
+	mFlagArray = Array<bool>();
 
 	for (int i = 0; i < aHeight; i++) {
 		for (int j = 0; j < aWidth; j++) {
 			mBombArray.set(j, i, 0);
 			mOpenArray.set(j, i, false);
+			mFlagArray.set(j, i, false);
 		}
 	}
 }
@@ -50,8 +53,12 @@ bool Stage::isOpen(int x, int y) const {
 	return inStage(x, y) && mOpenArray.get(x, y);
 }
 
+bool Stage::isFlag(int x, int y) const {
+	return inStage(x, y) && mFlagArray.get(x, y);
+}
+
 void Stage::open(int x, int y) {
-	if (!inStage(x, y)) return;
+	if (!inStage(x, y) || isFlag(x, y)) return;
 	mOpenArray.set(x, y, true);
 
 	if (mBombArray.get(x, y) != 0) return;
@@ -69,6 +76,15 @@ void Stage::open(int x, int y) {
 
 void Stage::open(Vector2 vec) {
 	open(vec.x, vec.y);
+}
+
+void Stage::flag(int x, int y) {
+	if (!inStage(x, y) || isOpen(x, y)) return;
+	mFlagArray.set(x, y, true);
+}
+
+void Stage::flag(Vector2 vec) {
+	flag(vec.x, vec.y);
 }
 
 bool Stage::inStage(int num) const {

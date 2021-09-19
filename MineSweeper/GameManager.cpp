@@ -20,10 +20,14 @@ void GameManager::play() {
 		switch (command)
 		{
 		case 97: // aキーでopen
-			if (isFirst) mStage.init(10, cursor); // 最初にopenしたときのみ初期化
+			if (isFirst) {
+				mStage.init(10, cursor); // 最初にopenしたときのみ初期化
+				isFirst = false;
+			}
 			mStage.open(cursor);
 			break;
 		case 102: // fキーでflag
+			mStage.flag(cursor);
 			break;
 		case 0xe0:
 			if (command == 0xe0) {

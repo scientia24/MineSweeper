@@ -17,7 +17,10 @@ void Display::Show(Stage aStage, Vector2 aCursor) {
 				std::cout << " ";
 			}
 			else {
-				if (!aStage.isOpen(j, i)) {
+				if (aStage.isFlag(j, i)) {
+					std::cout << " F";
+				}
+				else if (!aStage.isOpen(j, i)) {
 					std::cout << "  ";
 				}
 				else {
