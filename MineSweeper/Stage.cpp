@@ -15,7 +15,7 @@ Stage::Stage(int aWidth, int aHeight) {
 	}
 }
 
-void Stage::init(int bombNum) {
+void Stage::init(int bombNum, Vector2 cursor) {
 	// 爆弾をランダムにセット
 	std::random_device rd;
 	std::default_random_engine eng(rd());
@@ -23,7 +23,8 @@ void Stage::init(int bombNum) {
 	int count = 0;
 	while (count < bombNum) {
 		auto num = distr(eng);
-		if (!isBomb(num)) {
+		// 既に爆弾がある場所と最初に開けたマスに爆弾は置かない
+		if (!(isBomb(num) || num == cursor.x + cursor.y * mWidth)) {
 			mBombArray.set(num, -1);
 			++count;
 		}

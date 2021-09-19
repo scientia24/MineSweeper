@@ -7,7 +7,7 @@ class  Stage
 public:
 	 Stage(int aWidth, int aHeight);
 
-	void init(int bombNum);
+	void init(int bombNum, Vector2 cursor);
 	int getWidth() const { return mWidth; }
 	int getHeight() const { return mHeight; }
 	bool isBomb(int num) const;

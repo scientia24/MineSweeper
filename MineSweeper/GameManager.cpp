@@ -11,7 +11,7 @@ GameManager::GameManager()
 
 void GameManager::play() {
 	auto cursor = Vector2(0, 0);
-	mStage.init(10);
+	bool isFirst = true;
     while (!(isClear() || isGameOver())) {
 		Display::Show(mStage, cursor);
 		auto command = _getch();
@@ -20,6 +20,7 @@ void GameManager::play() {
 		switch (command)
 		{
 		case 97: // aキーでopen
+			if (isFirst) mStage.init(10, cursor); // 最初にopenしたときのみ初期化
 			mStage.open(cursor);
 			break;
 		case 102: // fキーでflag
