@@ -3,6 +3,8 @@
 
 void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 	const std::string fullNum[] = { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10" };
+	const std::string explainSentence[] = { "方向キー: カーソル移動", "A: マス目を開く", "F: 旗を立てる" };
+	constexpr auto expLine = 3;
 	constexpr auto backDefaultColor = "\x1b[49m";
 	constexpr auto backWhite = "\x1b[47m";
 	constexpr auto backYellow = "\x1b[43m";
@@ -26,6 +28,7 @@ void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 	for (int i = 0; i < aStage.getWidth() + 1; i++) {
 		str += "―";
 	}
+
 	str += "\n";
 
 	for (int i = 0; i < aStage.getHeight(); i++) {
@@ -40,16 +43,14 @@ void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 					str += backYellow;
 					str += literalWhite;
 					str += " F";
-					str += literalDefaultColor;
-					str += backDefaultColor;
 				}
 				else if (!aStage.isOpen(j, i)) {
 					str += backWhite;
 					str += "  ";
-					str += backDefaultColor;
 				}
 				else {
 					if (aStage.isBomb(j, i)) {
+						str += literalRed;
 						str += " *";
 					}
 					else {
@@ -72,10 +73,15 @@ void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 							break;
 						}
 						str += (bombNum == 0 ? "  " : fullNum[bombNum - 1]);
-						str += literalDefaultColor;
 					}
 				}
+				str += backDefaultColor;
+				str += literalDefaultColor;
 			}
+		}
+		if (i < expLine) {
+			str += "    ";
+			str += explainSentence[i];
 		}
 		str += "\n";
 	}
