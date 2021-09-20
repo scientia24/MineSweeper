@@ -5,6 +5,8 @@
 #include <conio.h>
 #include <iostream>
 
+bool replay();
+
 int main()
 {
 	bool play = true;
@@ -16,37 +18,40 @@ int main()
 
 		system("cls");
 
-		bool replayCursol = true;
-		while (true)
+		play = replay();
+	}
+}
+
+bool replay() {
+	bool replayCursol = true;
+	while (true)
+	{
+		std::cout << "もう一度遊びますか？（Enterキーで決定）" << std::endl;
+		std::cout << (replayCursol ? "   > Yes    NO" : "     Yes  > NO") << std::endl;
+
+		auto command = _getch();
+		system("cls");
+
+		switch (command)
 		{
-			std::cout << "もう一度遊びますか？" << std::endl;
-			std::cout << (replayCursol ? "   > Yes    NO" : "     Yes  > NO") << std::endl;
-
-			auto command = _getch();
-			system("cls");
-
-			switch (command)
-			{
-			case 0xe0:
-				if (command == 0xe0) {
-					auto allowKey = _getch();
-					switch (allowKey)
-					{
-					case 0x4b:
-						replayCursol = true;
-						break;
-					case 0x4d:
-						replayCursol = false;
-						break;
-					}
+		case 0xe0:
+			if (command == 0xe0) {
+				auto allowKey = _getch();
+				switch (allowKey)
+				{
+				case 0x4b:
+					replayCursol = true;
+					break;
+				case 0x4d:
+					replayCursol = false;
+					break;
 				}
-				break;
-			case 0x0d:
-				play = replayCursol;
-				break;
-			default:
-				break;
 			}
+			break;
+		case 0x0d:
+			return replayCursol;
+		default:
+			break;
 		}
 	}
 }
