@@ -27,7 +27,7 @@ void DoubleBuffer::write(const std::string& str) {
 
 void DoubleBuffer::swapBuffer() {
 	if ((mIsSwaped = !mIsSwaped)) {
-		SetConsoleActiveScreenBuffer(mHandle1);
+		SetConsoleActiveScreenBuffer(mHandle2);
 	}
 	else {
 		SetConsoleActiveScreenBuffer(mHandle1);
