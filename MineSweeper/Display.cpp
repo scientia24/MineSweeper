@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <string>
 #include "Display.hpp"
 
 void Display::Show(const Stage& aStage, const Vector2& aCursor) {
@@ -82,6 +83,13 @@ void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 		if (i < expLine) {
 			str += "    ";
 			str += explainSentence[i];
+		}
+		if (i == aStage.getHeight() - 2) {
+			str += "    爆弾の数: 10";
+		}
+		if (i == aStage.getHeight() - 1) {
+			str += "    旗の数: ";
+			str += std::to_string(aStage.getFlagNum());
 		}
 		str += "\n";
 	}

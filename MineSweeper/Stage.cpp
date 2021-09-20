@@ -108,6 +108,16 @@ void Stage::openAllCell() {
 	}
 }
 
+int Stage::getFlagNum() const {
+	int count = 0;
+	for (int i = 0; i < mHeight; i++) {
+		for (int j = 0; j < mWidth; j++) {
+			if (mFlagArray.get(j, i)) ++count;
+		}
+	}
+	return count;
+}
+
 int Stage::countAroundBomb(int x, int y) const {
 	int count = 0;
 	for (int i = -1; i <= 1; i++) {
