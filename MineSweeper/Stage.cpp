@@ -36,7 +36,7 @@ void Stage::init(int bombNum, const Vector2& cursor) {
 	// üˆÍ‚Ìƒ}ƒX‚É‚ ‚é”š’e‚ÌŒÂ”‚ğ•Û‘¶
 	for (int i = 0; i < mHeight; i++) {
 		for (int j = 0; j < mWidth; j++) {
-			if(!isBomb(j,i)) mBombArray.set(j, i, getBombCount(j, i));
+			if(!isBomb(j,i)) mBombArray.set(j, i, countAroundBomb(j, i));
 		}
 	}
 }
@@ -95,12 +95,12 @@ bool Stage::inStage(int x, int y) const {
 	return 0 <= x && x < mWidth && 0 <= y && y < mHeight;
 }
 
-int Stage::getBombNum(int x, int y) const {
+int Stage::getAroundBombNum(int x, int y) const {
 	if (!inStage(x, y)) return 0;
 	return mBombArray.get(x, y);
 }
 
-int Stage::getBombCount(int x, int y) const {
+int Stage::countAroundBomb(int x, int y) const {
 	int count = 0;
 	for (int i = -1; i <= 1; i++) {
 		for (int j = -1; j <= 1; j++) {
