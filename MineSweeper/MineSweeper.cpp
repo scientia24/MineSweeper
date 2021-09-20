@@ -2,11 +2,53 @@
 //
 
 #include "GameManager.hpp"
+#include <conio.h>
+#include <iostream>
 
 int main()
 {
-	auto gm = GameManager();
-	gm.play();
+	bool play = true;
+	while (play) {
+		auto gm = GameManager();
+		gm.play();
+		std::cout << "何かキーを押してください。" << std::endl;
+		auto command1 = _getch();
+
+		system("cls");
+
+		bool replayCursol = true;
+		while (true)
+		{
+			std::cout << "もう一度遊びますか？" << std::endl;
+			std::cout << (replayCursol ? "   > Yes    NO" : "     Yes  > NO") << std::endl;
+
+			auto command = _getch();
+			system("cls");
+
+			switch (command)
+			{
+			case 0xe0:
+				if (command == 0xe0) {
+					auto allowKey = _getch();
+					switch (allowKey)
+					{
+					case 0x4b:
+						replayCursol = true;
+						break;
+					case 0x4d:
+						replayCursol = false;
+						break;
+					}
+				}
+				break;
+			case 0x0d:
+				play = replayCursol;
+				break;
+			default:
+				break;
+			}
+		}
+	}
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー

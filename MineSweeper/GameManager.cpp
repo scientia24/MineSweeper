@@ -57,13 +57,11 @@ void GameManager::play() {
 	if (isClear()) {
 		Display::Show(mStage, cursor);
 		std::cout << "Congratulations!" << std::endl;
-		auto command = _getch();
 	}
 	if (isGameOver()) {
 		mStage.openAllCell();
 		Display::Show(mStage, cursor);
 		std::cout << "GameOver" << std::endl;
-		auto command = _getch();
 	}
 }
 
