@@ -21,6 +21,7 @@ public:
 	bool inStage(int num) const;
 	bool inStage(int x, int y) const;
 	int getAroundBombNum(int x, int y) const;
+	void openAllCell();
 
 private:
 	int countAroundBomb(int x, int y) const;

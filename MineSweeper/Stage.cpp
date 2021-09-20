@@ -100,6 +100,14 @@ int Stage::getAroundBombNum(int x, int y) const {
 	return mBombArray.get(x, y);
 }
 
+void Stage::openAllCell() {
+	for (int i = 0; i < mHeight; i++) {
+		for (int j = 0; j < mWidth; j++) {
+			mOpenArray.set(j, i, true);
+		}
+	}
+}
+
 int Stage::countAroundBomb(int x, int y) const {
 	int count = 0;
 	for (int i = -1; i <= 1; i++) {

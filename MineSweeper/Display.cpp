@@ -54,7 +54,7 @@ void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 						str += " *";
 					}
 					else {
-						int bombNum = aStage.getBombNum(j, i);
+						int bombNum = aStage.getAroundBombNum(j, i);
 						switch (bombNum)
 						{
 						case 1:
