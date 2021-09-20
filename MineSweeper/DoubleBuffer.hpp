@@ -1,6 +1,7 @@
 #include <Windows.h>
 #include <string>
 
+// ŒÄ‚Ño‚·‚ÆDLL Initialization failed ‚É‚È‚é‚Ì‚Åg‚Á‚Ä‚¢‚È‚¢
 class DoubleBuffer {
 public:
 	DoubleBuffer();
