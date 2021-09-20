@@ -3,6 +3,10 @@
 
 void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 	const std::string fullNum[] = { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10" };
+	constexpr auto backDefaultColor = "\x1b[49m";
+	constexpr auto backWhite = "\x1b[47m";
+	constexpr auto literalDefaultColor = "\x1b[39m";
+	constexpr auto literalWhite = "\x1b[30m";
 
 	std::string str = "";
 	str += "  Åb";
@@ -27,10 +31,16 @@ void Display::Show(const Stage& aStage, const Vector2& aCursor) {
 			}
 			else {
 				if (aStage.isFlag(j, i)) {
-					str += "\x1b[47m\x1b[30m F\x1b[49m\x1b[39m";
+					str += backWhite;
+					str += literalWhite;
+					str += " F";
+					str += literalDefaultColor;
+					str += backDefaultColor;
 				}
 				else if (!aStage.isOpen(j, i)) {
-					str += "\x1b[47m  \x1b[49m";
+					str += backWhite;
+					str += "  ";
+					str += backDefaultColor;
 				}
 				else {
 					if (aStage.isBomb(j, i)) {
