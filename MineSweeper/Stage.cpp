@@ -80,7 +80,7 @@ void Stage::open(const Vector2& vec) {
 
 void Stage::flag(int x, int y) {
 	if (!inStage(x, y) || isOpen(x, y)) return;
-	mFlagArray.set(x, y, true);
+	mFlagArray.set(x, y, !mFlagArray.get(x, y));
 }
 
 void Stage::flag(const Vector2& vec) {
